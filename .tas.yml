@@ -1,0 +1,22 @@
+---
+framework: "jest"
+postMerge:
+    pattern:
+    - "./test/datetime/create.test.js"
+    - "./test/datetime/degrade.test.js"
+    - "./test/datetime/diff.test.js"
+    - "./test/datetime/dst.test.js"
+    - "./test/datetime/equality.test.js"
+preMerge:
+    pattern:
+    - "./test/datetime/create.test.js"
+    - "./test/datetime/degrade.test.js"
+    - "./test/datetime/diff.test.js"
+    - "./test/datetime/dst.test.js"
+    - "./test/datetime/equality.test.js"
+preRun:
+    - npm install
+    -npm run build
+postRun:
+    - node --version
+version: 2.0
