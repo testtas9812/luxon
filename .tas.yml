@@ -10,7 +10,6 @@ preMerge:
 preRun:
      command:
         - npm install
-        - npm run build
 postRun:
      command:
         - node --version
