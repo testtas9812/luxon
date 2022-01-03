@@ -3,18 +3,10 @@ framework: jest
 tier: large
 postMerge: 
   pattern: 
-    - "./test/datetime/create.test.js"
-    - "./test/datetime/degrade.test.js"
-    - "./test/datetime/diff.test.js"
-    - "./test/datetime/dst.test.js"
-    - "./test/datetime/equality.test.js"
+    - "./test/*/create.test.js"
 preMerge:
   pattern:
-    - "./test/datetime/create.test.js"
-    - "./test/datetime/degrade.test.js"
-    - "./test/datetime/diff.test.js"
-    - "./test/datetime/dst.test.js"
-    - "./test/datetime/equality.test.js"
+    - "./test/*/create.test.js"
 preRun:
      command:
         - npm install
