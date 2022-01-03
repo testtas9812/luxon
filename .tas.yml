@@ -3,10 +3,10 @@ framework: jest
 tier: large
 postMerge: 
   pattern: 
-    - "./test/*/create.test.js"
+    - "./test/*/*.test.js"
 preMerge:
   pattern:
-    - "./test/*/create.test.js"
+    - "./test/*/*.test.js"
 preRun:
      command:
         - npm install
