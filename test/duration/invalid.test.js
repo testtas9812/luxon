@@ -9,6 +9,7 @@ test("Explicitly invalid durations are invalid", () => {
   expect(dur.invalidExplanation).toBe("seriously, just because");
 });
 
+
 test("throwOnInvalid throws", () => {
   try {
     Settings.throwOnInvalid = true;
