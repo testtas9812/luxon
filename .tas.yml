@@ -1,6 +1,6 @@
 ---
 framework: jest
-tier: small
+tier: xsmall
 postMerge: 
   pattern: 
     - "./test/*/*.test.js"
