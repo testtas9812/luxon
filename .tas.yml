@@ -5,7 +5,7 @@ postMerge:
   pattern: 
     - "./test/*/*.test.js"
 preMerge:
-  pattern:Checked mocha repos with updated tas yml file
+  pattern:
     - "./test/*/*.test.js"
 preRun:
      command:
