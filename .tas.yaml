@@ -1,6 +1,6 @@
 ---
 framework: jest
-tier: medium
+licenseTier: medium
 postMerge: 
   pattern: 
     - "./test/*/*.test.js"
@@ -13,4 +13,4 @@ preRun:
 postRun:
      command:
         - node --version
-version: 1.0
+version: 2.0
