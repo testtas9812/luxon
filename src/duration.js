@@ -426,6 +426,36 @@ export default class Duration {
   }
 
   /**
+   * Returns a string representation of a Duration with all units included
+   * To modify its behavior use the `listStyle` and any Intl.NumberFormat option, though `unitDisplay` is especially relevant. See {@link Intl.NumberFormat}.
+   * @param opts - On option object to override the formatting. Accepts the same keys as the options parameter of the native `Int.NumberFormat` constructor, as well as `listStyle`.
+   * @example
+   * ```js
+   * var dur = Duration.fromObject({ days: 1, hours: 5, minutes: 6 })
+   * dur.toHuman() //=> '1 day, 5 hours, 6 minutes'
+   * dur.toHuman({ listStyle: "long" }) //=> '1 day, 5 hours, and 6 minutes'
+   * dur.toHuman({ unitDisplay: "short" }) //=> '1 day, 5 hr, 6 min'
+   * ```
+   */
+  toHuman(opts = {}) {
+    const l = orderedUnits
+      .map((unit) => {
+        const val = this.values[unit];
+        if (isUndefined(val)) {
+          return null;
+        }
+        return this.loc
+          .numberFormatter({ style: "unit", unitDisplay: "long", ...opts, unit: unit.slice(0, -1) })
+          .format(val);
+      })
+      .filter((n) => n);
+
+    return this.loc
+      .listFormatter({ type: "conjunction", style: opts.listStyle || "narrow", ...opts })
+      .format(l);
+  }
+
+  /**
    * Returns a JavaScript object with this Duration's values.
    * @example Duration.fromObject({ years: 1, days: 6, seconds: 2 }).toObject() //=> { years: 1, days: 6, seconds: 2 }
    * @return {Object}
