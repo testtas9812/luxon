@@ -1,6 +1,6 @@
 ---
 framework: jest
-licenseTier: medium
+licenseTier: small
 postMerge: 
   pattern: 
     - "./test/*/*.test.js"
